@@ -1,6 +1,4 @@
 import 'dart:typed_data';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +10,6 @@ import 'package:myapp/services/firestore/firestore.dart';
 import 'package:myapp/utils/image_select.dart';
 import 'package:myapp/utils/upload_image_dialogue.dart';
 import 'package:provider/provider.dart';
-
 import '../utils/colors.dart';
 
 class Register extends StatefulWidget {

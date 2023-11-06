@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/controller/PrivateChatController.dart';
-
-import '../controller/UserController.dart';
 import '../routes/app_route.dart';
-import '../utils/colors.dart';
 
 class UserPrivateProfilePage extends StatefulWidget {
   const UserPrivateProfilePage({super.key});

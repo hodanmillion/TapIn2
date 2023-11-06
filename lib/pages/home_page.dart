@@ -1,38 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:get/get.dart';
-import 'package:myapp/pages/chatPage.dart';
 import 'package:myapp/pages/contacts_page.dart';
 import 'package:myapp/pages/home_page_requests.dart';
-import 'package:myapp/pages/past_chat_view.dart';
 import 'package:myapp/pages/past_chats_page.dart';
 import 'package:myapp/services/auth/auth_service.dart';
 import 'package:provider/provider.dart';
-import '../controller/ContactController.dart';
 import 'AddContactScreen.dart';
-import 'DataService.dart';
 import 'package:geolocator/geolocator.dart';
-import 'LocationChat.dart';
 import 'dart:async';
-
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:get/get.dart';
-import 'package:myapp/pages/chatPage.dart';
-import 'package:myapp/pages/contacts_page.dart';
-import 'package:myapp/pages/home_page_requests.dart';
-import 'package:myapp/pages/past_chat_view.dart';
-import 'package:myapp/pages/past_chats_page.dart';
-import 'package:myapp/services/auth/auth_service.dart';
-import 'package:provider/provider.dart';
-import '../controller/ContactController.dart';
-import 'AddContactScreen.dart';
-import 'DataService.dart';
-import 'package:geolocator/geolocator.dart';
-import 'LocationChat.dart';
+
 
 class YourRealtimeDatabaseService {
 

@@ -16,20 +16,11 @@ import '../model/message_chat.dart';
 import '../routes/app_route.dart';
 import '../utils/colors.dart';
 import 'package:flutter/services.dart';
- import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 // ignore: depend_on_referenced_packages
 import 'package:url_launcher/url_launcher.dart';
 
-
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
 
 class ChatPage extends GetView<PrivateChatController> {
   final controller = Get.find<PrivateChatController>();

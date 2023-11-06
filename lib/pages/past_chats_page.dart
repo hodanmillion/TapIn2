@@ -1,15 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:geoflutterfire2/geoflutterfire2.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/controller/chat_controller.dart';
-import 'package:myapp/pages/auto_generated_chat_page.dart';
 
-import '../components/message_tile.dart';
-import '../controller/past_chat_controller.dart';
-import '../model/message.dart';
 import '../routes/app_route.dart';
 import '../services/firestore/firestore.dart';
 
