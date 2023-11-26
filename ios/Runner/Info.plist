@@ -55,12 +55,18 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Permissions needed to capture images</string>
 	<key>NSContactsUsageDescription</key>
 	<string>This app requires contacts access to function properly.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We need your location to provide location feature even when the app is in the background.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need your location to provide location feature when the app is in use.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone usage needed</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Permission needed to upload images</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
@@ -85,11 +91,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Permission needed to upload images</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Permissions needed to capture images</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Microphone usage needed</string>
 </dict>
 </plist>

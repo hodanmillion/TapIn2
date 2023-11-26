@@ -6,13 +6,21 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:myapp/models/RemoteUser.dart';
+
 import 'package:http/http.dart' as http;
 
 import '../model/message_chat.dart';
 
 class PrivateChatController extends GetxController {
-  FirebaseAuth? firebaseAuth = null;
+   FirebaseAuth? firebaseAuth = null;
   FirebaseFirestore? fireStore = null;
+  RemoteUser? remoteUser;
+
+  // Add a constructor to receive RemoteUser
+  PrivateChatController({this.remoteUser});
+
+
   RxList<Message> messages = RxList<Message>();
   final messageController = TextEditingController().obs;
   final searchGifText = TextEditingController().obs;

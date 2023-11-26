@@ -5,11 +5,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/controller/PrivateChatController.dart';
 import '../routes/app_route.dart';
 
+import 'package:myapp/models/RemoteUser.dart';
+
 class UserPrivateProfilePage extends StatefulWidget {
-  const UserPrivateProfilePage({super.key});
+  const UserPrivateProfilePage({Key? key}) : super(key: key);
 
   @override
-  State<UserPrivateProfilePage> createState() => _UserPrivateProfilePageState();
+  State<UserPrivateProfilePage> createState() =>
+      _UserPrivateProfilePageState();
 }
 
 class _UserPrivateProfilePageState extends State<UserPrivateProfilePage> {
@@ -17,12 +20,7 @@ class _UserPrivateProfilePageState extends State<UserPrivateProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    // Access the parameters
-    // final String email = params['email'] ?? '';
-    // final String userName = params['userName'] ?? '';
-    // final String userImage = params['userImage'] ?? '';
-    // final String location = params['location'] ?? '';
-    // final String isMainUSer = params['isMainUSer'] ?? '';
+    RemoteUser? remoteUser = prController.remoteUser;
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -51,13 +49,14 @@ class _UserPrivateProfilePageState extends State<UserPrivateProfilePage> {
             ),
             Column(
               children: [
-                (prController.userImageP.value != '')
+                (remoteUser?.profileImage ?? '') != ''
                     ? InkWell(
                         onTap: () {
                           Map<String, String> params = {
-                            "imageUrl": prController.userImageP.value ?? '',
+                            "imageUrl": remoteUser?.profileImage ?? '',
                           };
-                          Get.toNamed(PageConst.imageView, arguments: params);
+                          Get.toNamed(PageConst.imageView,
+                              arguments: params);
                         },
                         child: Obx(
                           () => ClipOval(
@@ -65,7 +64,7 @@ class _UserPrivateProfilePageState extends State<UserPrivateProfilePage> {
                               placeholder: (context, url) =>
                                   const CircularProgressIndicator(),
                               fit: BoxFit.cover,
-                              imageUrl: prController.userImageP.value,
+                              imageUrl: remoteUser?.profileImage ?? '',
                               width: 100.0,
                               height: 100.0,
                             ),
@@ -82,7 +81,7 @@ class _UserPrivateProfilePageState extends State<UserPrivateProfilePage> {
                 ),
                 Obx(
                   () => Text(
-                    prController.userNameP.value,
+                    remoteUser?.name ?? '',
                     style: GoogleFonts.openSans(
                       textStyle: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -99,56 +98,51 @@ class _UserPrivateProfilePageState extends State<UserPrivateProfilePage> {
               child: Container(
                 color: Colors.black,
                 child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: const BorderRadius.only(
-                        topRight: Radius.circular(40),
-                        topLeft: Radius.circular(40),
-                      ),
-                      border: Border.all(
-                        width: 3,
-                        color: Colors.white,
-                        style: BorderStyle.solid,
-                      ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(40),
+                      topLeft: Radius.circular(40),
                     ),
-                    child: Column(
-                      children: [
-                        ListTile(
-                          contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 8),
-                          title: Text(
-                            "Display Name",
+                    border: Border.all(
+                      width: 3,
+                      color: Colors.white,
+                      style: BorderStyle.solid,
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 8),
+                        title: Text(
+                          "Display Name",
+                          style: GoogleFonts.openSans(
+                            textStyle: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: Colors.grey,
+                                letterSpacing: .5),
+                          ),
+                        ),
+                        subtitle: Obx(
+                          () => Text(
+                            remoteUser?.name ?? '',
                             style: GoogleFonts.openSans(
                               textStyle: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: Colors.grey,
+                                  color: Colors.black,
+                                  fontSize: 25,
                                   letterSpacing: .5),
                             ),
                           ),
-                          subtitle: Obx(
-                            () => Text(
-                              prController.userNameP.value,
-                              style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                    fontSize: 25,
-                                    letterSpacing: .5),
-                              ),
-                            ),
-                          ),
                         ),
-                        tile(
-                            title: "Email Address",
-                            subTitle: prController.emailP.value),
-                        Obx(
-                          () => tile(
-                              title: "Location",
-                              subTitle: prController.userLocation.value),
-                        ),
-                      ],
-                    )),
+                      ),
+                      tile(title: "Email Address", subTitle: remoteUser?.email ?? ''),
+                      tile(title: "Location", subTitle: remoteUser?.location ?? ''),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],
