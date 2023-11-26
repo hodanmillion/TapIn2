@@ -13,3 +13,4 @@ class RemoteUser {
     required this.location,
   });
 }
+
