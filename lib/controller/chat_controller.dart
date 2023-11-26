@@ -19,6 +19,18 @@ import '../usecases/create_chat_group_use_case.dart';
 import '../usecases/get_messages_usecase.dart';
 
 class ChatController extends GetxController {
+    final Set<String> blockedUsers = {}; // Declare a Set to store blocked user IDs
+
+  void blockUser(String userId) {
+    // Implement the logic to block the user
+    // For example:
+    blockedUsers.add(userId);
+  }
+
+  bool isUserBlocked(String userId) {
+    return blockedUsers.contains(userId);
+  }
+
   AddMessageUseCase? _addMessageUseCase;
   GetMessagesUseCase? _getMessagesUseCase;
   CreateChatGroupUseCase? _createChatGroupUseCase;

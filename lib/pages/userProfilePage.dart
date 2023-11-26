@@ -1,14 +1,11 @@
 import 'dart:typed_data';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:myapp/controller/PrivateChatController.dart';
 import 'package:myapp/services/firestore/firestore.dart';
-
 import '../controller/UserController.dart';
 import '../routes/app_route.dart';
 import '../services/storage/fire_storage.dart';

@@ -7,14 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/controller/ContactController.dart';
 import '../routes/app_route.dart';
 
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/controller/ContactController.dart';
-import '../routes/app_route.dart';
 
 class ContactsPage extends GetView<ContactsController> {
   final controller = Get.find<ContactsController>();

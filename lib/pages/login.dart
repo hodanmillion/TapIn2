@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/components/my_button.dart';
 import 'package:myapp/components/my_text_field.dart';
-import 'package:myapp/pages/send_otp.dart';
 import 'package:myapp/services/auth/auth_service.dart';
 import 'package:myapp/utils/colors.dart';
 import 'package:provider/provider.dart';

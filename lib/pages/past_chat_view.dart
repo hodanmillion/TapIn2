@@ -1,12 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:geoflutterfire2/geoflutterfire2.dart';
 import 'package:get/get.dart';
-import 'package:myapp/controller/chat_controller.dart';
 import 'package:myapp/controller/past_chat_controller.dart';
 
 import '../components/message_tile.dart';
-import '../model/message.dart';
 
 class PastChatView extends GetView<PastChatListController> {
   final controller = Get.find<PastChatListController>();
