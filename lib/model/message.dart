@@ -1,7 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class MessagePublicChat {
-
   final String senderId;
   final String senderEmail;
   final String message;
@@ -9,8 +6,13 @@ class MessagePublicChat {
   final String gifUrl;
   final bool isGif;
 
-  MessagePublicChat({required this.senderId, required this.senderEmail,
-    required this.message, required this.timestamp,required this.gifUrl,required this.isGif});
+  MessagePublicChat(
+      {required this.senderId,
+      required this.senderEmail,
+      required this.message,
+      required this.timestamp,
+      required this.gifUrl,
+      required this.isGif});
 
   //convert to map
 
@@ -18,11 +20,10 @@ class MessagePublicChat {
     return {
       'sender': senderId,
       'sendername': senderEmail,
-      'message':message,
-      'time':timestamp,
-      'gifUrl':gifUrl,
-      'isGif':isGif,
-
+      'message': message,
+      'time': timestamp,
+      'gifUrl': gifUrl,
+      'isGif': isGif,
     };
   }
-} 
+}

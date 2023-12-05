@@ -11,10 +11,7 @@ import 'package:geolocator/geolocator.dart';
 import 'dart:async';
 import 'package:firebase_database/firebase_database.dart';
 
-
 class YourRealtimeDatabaseService {
-
-
   // Add methods for subscribing to Realtime Database data, unsubscribing, and clearing data
   // For example:
   DatabaseReference? databaseReference;
@@ -38,8 +35,7 @@ class YourFirestoreService {
   // Add methods for subscribing to Firestore data, unsubscribing, and clearing data
   // For example:
   StreamSubscription<DocumentSnapshot>? dataSubscription;
-    final FirebaseAuth _auth = FirebaseAuth.instance; // Define _auth here
-
+  final FirebaseAuth _auth = FirebaseAuth.instance; // Define _auth here
 
   void subscribeToFirestoreData() {
     // Subscribe to Firestore data, and store the subscription for later use.
@@ -50,29 +46,23 @@ class YourFirestoreService {
     dataSubscription?.cancel();
   }
 
-void clearFirestoreData() {
+  void clearFirestoreData() {
     // Add the code to clear cached Firestore data or local state.
     // This could include resetting variables, clearing lists, etc.
     // For example:
     dataSubscription?.cancel();
     // Add more cleanup code as needed.
   }
-  
+
   // Other cleanup tasks (e.g., unsubscribing) can be added here.
 }
 
-
-
 class HomePage extends StatefulWidget {
-
-  
   const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
-
-
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
@@ -96,22 +86,18 @@ class _HomePageState extends State<HomePage>
     // Add more cleanup code as needed.
   }
 
-void signOut() async {
-  final authService = Provider.of<AuthService>(context, listen: false);
+  void signOut() async {
+    final authService = Provider.of<AuthService>(context, listen: false);
 
-  if (_auth.currentUser != null) {
-    try {
-      clearFirebaseData(); // Call the function to clear user data
-      await authService.signOut(); // Sign out the user
-    } catch (error) {
-      print("Failed to sign out: $error");
+    if (_auth.currentUser != null) {
+      try {
+        clearFirebaseData(); // Call the function to clear user data
+        await authService.signOut(); // Sign out the user
+      } catch (error) {
+        print("Failed to sign out: $error");
+      }
     }
   }
-}
-
-
-
-
 
   Future<void> fetchFriendRequests() async {
     try {
@@ -226,10 +212,10 @@ void signOut() async {
             .collection('contacts')
             .doc(currentUserUid)
             .set({
-              'userId': contactId,
-              'contactId': currentUserUid,
-              'email': user.email,
-            });
+          'userId': contactId,
+          'contactId': currentUserUid,
+          'email': user.email,
+        });
 
         // Remove the accepted friend request from Firestore's 'friend_requests' collection
         await FirebaseFirestore.instance
@@ -285,44 +271,44 @@ void signOut() async {
     }
   }
 
- Widget _profileIcon() {
-  String? userEmail = _auth.currentUser?.email ?? "Unknown User";
-  String userInitial = userEmail.isNotEmpty ? userEmail[0].toUpperCase() : "?";
+  Widget _profileIcon() {
+    String? userEmail = _auth.currentUser?.email ?? "Unknown User";
+    String userInitial = userEmail.isNotEmpty ? userEmail[0] : "?";
 
-  return GestureDetector(
-    onTap: () {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text("Profile"),
-            content: Text("Email: $userEmail"),
-            actions: [
-              TextButton(
-                child: Text("Close"),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    },
-    child: Tooltip(
-      message: userEmail,
-      child: CircleAvatar(
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
-        radius: 30,
-        child: Text(
-          userInitial,
-          style: TextStyle(fontSize: 24),
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Profile"),
+              content: Text("Email: $userEmail"),
+              actions: [
+                TextButton(
+                  child: Text("Close"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      },
+      child: Tooltip(
+        message: userEmail,
+        child: CircleAvatar(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          radius: 30,
+          child: Text(
+            userInitial.toUpperCase(),
+            style: TextStyle(fontSize: 24),
+          ),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
 
   void checkForNearbyUsersAndGenerateChats(Position position) async {
     if (position != null) {
